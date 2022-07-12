@@ -1,0 +1,27 @@
+Usage:
+  First run all remote scripts at remote sites.
+  Then run the central scripts at the central site.
+  The central scripts should return a list of imputed datasets.
+
+
+Script Files:
+SIMI/
+  SIMIScriptCentral.R - example script for central site
+  SIMIScriptRemote.R - example script for remote sites
+
+
+Configuration Files:
+SIMI/
+  SIMIConfCentral - configuration file for central site; multiple tuples of (remote_host,remote_port,local_listen_port)
+  SIMIConfRemotek - configuration file for k-th remote site; 1 tuple of (cent_host,cent_port,local_listen_port)
+
+
+Package Files:
+SIMI/
+  SIMICentral.R - codes for central site where analysis is performed
+  SIMIRemote.R - Codes for remote sites
+Core/
+  Transfer.R - internal codes for network communication
+
+
+Data generation: currently random data are generated in the script files
