@@ -94,7 +94,7 @@ cols_1 = st.columns(6)
 run_button = cols_1[1].button('Run')
 refresh_button = cols_1[2].button('Refresh')
 stop_button = cols_1[3].button('Stop')
-clear_all_R = cols_1[4].checkbox('Kill All R porcess')
+clear_all_R = cols_1[4].button('Kill All R porcess')
 cols_1[0].write('Remote job:')
 
 status_placeholder = st.empty()
