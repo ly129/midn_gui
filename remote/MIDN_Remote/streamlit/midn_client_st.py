@@ -94,7 +94,7 @@ cols_1 = st.columns(6)
 run_button = cols_1[1].button('Run')
 refresh_button = cols_1[2].button('Refresh')
 stop_button = cols_1[3].button('Stop')
-#debug_option = cols_1[4].checkbox('Debug Mode')
+clear_all_R = cols_1[4].checkbox('Kill All R porcess')
 cols_1[0].write('Remote job:')
 
 status_placeholder = st.empty()
@@ -258,8 +258,27 @@ if refresh_button:
         if stderr :
             display_text += stderr.decode('utf-8') + '\n'
         status_text  = status_placeholder.text_area('Runing Status', value=display_text ,key='Status', disabled =  True )
-        
 
+def findandKillProcessIdByName(processName):
+    listOfProcessObjects = []
+    #Iterate over the all the running process
+    for proc in psutil.process_iter():
+       try:
+           pinfo = proc.as_dict(attrs=['pid', 'name', 'create_time'])
+           # print(pinfo)
+           # Check if process name contains the given name string.
+           if processName == pinfo['name']  :
+               listOfProcessObjects.append(pinfo['pid'])
+       except (psutil.NoSuchProcess, psutil.AccessDenied , psutil.ZombieProcess) :
+           pass
+    for x in listOfProcessObjects:
+        p_R = psutil.Process(x)
+        p_R.kill()
+    return listOfProcessObjects;
+   
+if clear_all_R:
+    findandKillProcessIdByName('R')
+   
 if  stop_button :
     if st.session_state['pid'] :
         status_text  = status_placeholder.text_area('Runing Status', value="Stopped process with pid: {}".format(st.session_state['pid'].pid) ,key='Status', disabled =  True )
