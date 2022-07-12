@@ -235,6 +235,13 @@ def read_task(task_id):
     con.close()
     return  jsonify ({'task_id':task_id,'data': df.to_json(orient="index")})
 
+@app.route('/read_job/<task_id>')
+def read_job(task_id):
+    con = sqlite3.connect('controller.db')
+    df = pd.read_sql_query("SELECT client_name as remote_site, client_ip as remote_ip, client_port as remote_port, server_port FROM jobs where task_id = '{}'".format(task_id), con)
+    con.close()
+    return  jsonify ({'task_id':task_id,'data': df.to_json(orient="index")})
+  
 @app.route('/read_task_jobs/<task_id>')
 def read_task_jobs(task_id):
     con = sqlite3.connect('controller.db')
