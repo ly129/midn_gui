@@ -1,13 +1,25 @@
+
+prerequest:
+   
+   Please refer to  https://docs.docker.com/get-docker/ to install docker server on your testing machine.
+
+
 1. the docker images have been commited to dockerhub
     
+    run the below commands to get the latest update:
+    
+    sudo docker pull luyaochen/midn_server:latest
+    
+    sudo docker pull luyaochen/midn_remote:latest
+    
    
-2. run server
+2. run central server 
 
     sudo docker run  -it -d -p ssss:80 --name=midn_server luyaochen/midn_server
     
       where ssss is the server GUI port exposed to external network
 
-3. run remote 
+3. run remote server
   
     sudo docker run  -it -d -p remote_port_1:80 --name=midn_remote_1 luyaochen/midn_remote
     
