@@ -14,9 +14,9 @@ prerequest:
     ```
    
 2. run central server 
-   ```
+     ```
     sudo docker run  -it -d -p ssss:80 --name=midn_server luyaochen/midn_server
-   ```    
+     ```    
       where ssss is the server GUI port exposed to external network
 
 3. run remote server
@@ -33,17 +33,17 @@ prerequest:
 ~~ the below demo URL assumes that the remote and central docker container running on the same host
 
  4. Access central server
-   ```
+    ```
     http://cental_ip:central_port/start_midn.sh/             
+    ```
+    the ending "/" is of the URL a must
     
-    -- the ending "/" is a must
-    ```   
-      where central_ip is the host running the docker ( not the IP of central container)   
+    where central_ip is the host running the docker ( not the IP of central container)   
       
  6. Access remote server
-   ``` 
+    ``` 
     http://remote_ip:remote_port/start_midn.sh/ 
-   ```    
+     ```    
       where temote_ip is the host running the docker ( not the IP of remote container)
     
     change and save the defaul setup on remote server
