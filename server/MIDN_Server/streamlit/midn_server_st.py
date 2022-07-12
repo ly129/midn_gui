@@ -89,7 +89,7 @@ with st.expander("MIDistNet Task Admintration"):
     if len(task_selected["selected_rows"])> 0 :
         st.write("You selected:",task_selected["selected_rows"][0]["task_id"])
         st.write("Registed remote sites:")
-        rj = requests.post('http://{}/read_task/{}'.format( app.config['server_ip'],task_selected["selected_rows"][0]["task_id"]))
+        rj = requests.post('http://{}/read_job/{}'.format( app.config['server_ip'],task_selected["selected_rows"][0]["task_id"]))
         rj_data = json.loads(rj.json()['data'])
         df_job = pd.DataFrame(rj_data)
         st.write(df_job)
