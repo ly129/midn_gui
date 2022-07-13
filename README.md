@@ -34,7 +34,7 @@ prerequest:
 
  4. Access central server
     ```
-    http://cental_ip:central_port/start_midn.sh/             
+    http://cental_ip:central_port/midn_server/             
     ```
     the ending "/" is of the URL a must
     
@@ -42,7 +42,7 @@ prerequest:
       
  6. Access remote server
     ``` 
-    http://remote_ip:remote_port/start_midn.sh/ 
+    http://remote_ip:remote_port
      ```    
       where temote_ip is the host running the docker ( not the IP of remote container)
     
