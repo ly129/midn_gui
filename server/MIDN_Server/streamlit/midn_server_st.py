@@ -81,7 +81,7 @@ with st.expander("MIDistNet Task Admintration"):
     st.header('Task list')
 # https://share.streamlit.io/streamlit/example-app-interactive-table/main 
     refresh_clicked = st.button('Refresh' )
-    r = requests.post('{}/read_tasks'.format( app.config['server_app'], verify=False)
+    r = requests.post('{}/read_tasks'.format( app.config['server_app']), verify=False)
     r_data = json.loads(r.json()['data'])
     df = pd.DataFrame(r_data)
     task_selected = aggrid_interactive_table(df=df)
