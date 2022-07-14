@@ -4,6 +4,10 @@ MAINTAINER Luyao Chen <luyao.chen@uth.tmc.edu>
 
 add --chown=www-data ./MIDN_Server /MIDN_Server
 
+add  ./demo.key /MIDN_Server /root/ssl.key
+add  ./demo.cer /MIDN_Server /root/ssl.cer
+
+add  ./nginx_central /etc/nginx/sites-available/default
 
 WORKDIR /MIDN_Server
 
