@@ -81,7 +81,7 @@ with st.expander("MIDistNet Task Admintration"):
     st.header('Task list')
 # https://share.streamlit.io/streamlit/example-app-interactive-table/main 
     refresh_clicked = st.button('Refresh' )
-    r = requests.post('http://{}/read_tasks'.format( app.config['server_ip']))
+    r = requests.post('http://{}/read_tasks'.format( app.config['server_ip']), verify=False)
     r_data = json.loads(r.json()['data'])
     df = pd.DataFrame(r_data)
     task_selected = aggrid_interactive_table(df=df)
@@ -89,7 +89,7 @@ with st.expander("MIDistNet Task Admintration"):
     if len(task_selected["selected_rows"])> 0 :
         st.write("You selected:",task_selected["selected_rows"][0]["task_id"])
         st.write("Registed remote sites:")
-        rj = requests.get('http://{}/read_job/{}'.format( app.config['server_ip'],task_selected["selected_rows"][0]["task_id"]))
+        rj = requests.get('http://{}/read_job/{}'.format( app.config['server_ip'],task_selected["selected_rows"][0]["task_id"]), verify=False)
         rj_data = json.loads(rj.json()['data'])
         df_job = pd.DataFrame(rj_data).T
         st.write(df_job)
@@ -179,7 +179,7 @@ with st.expander("MIDistNet Task Admintration"):
             }
             new_task_info = json.dumps(new_task_info,indent = 4, default=str) 
             post_curl = 'http://{}/init'.format(server_ip)
-            r = requests.post(post_curl,data=new_task_info)            
+            r = requests.post(post_curl,data=new_task_info, verify=False)            
             r_json = r.json()
             st.write(r_json['message'])
 
@@ -200,7 +200,7 @@ with st.expander("Server Job Management"):
     get_task_id_clicked = st.button('Get Task Detail')
     if get_task_id_clicked and len(task_id) > 10:
         post_curl = '{}/read_task/{}'.format(app.config['server_app'],task_id)
-        r = requests.get(post_curl)
+        r = requests.get(post_curl, verify=False)
         r_json = json.loads(r.json()['data'])
         if len(r_json) == 0 :
             st.write("Task does not exist")
@@ -259,7 +259,7 @@ with st.expander("Server Job Management"):
         st.write("Not all remote sites regisitered!")
 
       else:
-        r = requests.get('http://{}/read_task_jobs/{}'.format( app.config['server_ip'],task_id))
+        r = requests.get('http://{}/read_task_jobs/{}'.format( app.config['server_ip'],task_id), verify=False)
         r_data = json.loads(r.json()['data'])
         df = pd.DataFrame(r_data)
 
