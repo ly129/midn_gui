@@ -20,4 +20,4 @@ else:
 
 app.config['server_port_from'] = '6600'
 
-app.config['server_app'] = 'http://127.0.0.1'
+app.config['server_app'] = 'https://127.0.0.1'
