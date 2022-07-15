@@ -48,7 +48,7 @@ client_port = st.text_input('Remote Site Public Port:',  app.config['client_port
 get_task_id_clicked = st.button('Get Task Detail')
 if get_task_id_clicked and len(task_id) > 10:
     post_curl = '{}/read_task/{}'.format(server_app_addr,task_id)
-    r = requests.get(post_curl)
+    r = requests.get(post_curl,verify=False)
     r_json = json.loads(r.json()['data'])
     if len(r_json) == 0 :
         st.write("Task does not exist")
@@ -79,7 +79,7 @@ if regisiter_button :
             'client_port':client_port,
             'client_name':client_name 
            }
-        r_reg = requests.post(server_app_addr+'/register', json=jsondata)
+        r_reg = requests.post(server_app_addr+'/register', json=jsondata,verify=False)
         st.session_state['server_data'] = r_reg.json() 
 #        st.write(st.session_state['server_data'])
         st.write(r_reg.json()['message'])
