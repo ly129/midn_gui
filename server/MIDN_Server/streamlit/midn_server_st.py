@@ -113,7 +113,7 @@ with st.expander("MIDistNet Task Admintration"):
             cols_1 = st.columns(4)
             total_remote_sites = cols_1[0].number_input('Total Remote Sites',key='total_remote_sites',value = 1 )
             server_ip = cols_1[1].text_input('Central Site Public IP',key='server_ip',value = app.config['server_ip'] )
-            server_port_from = cols_1[2].text_input('Central site Public Port from',key='server_port_from',max_chars = 5,value = app.config['server_port_from'] )
+            server_port_from = cols_1[2].text_input('Public Port from',key='server_port_from',max_chars = 5,value = app.config['server_port_from'] )
 
         cols_2 = st.columns(4) 
         impute_datasets = cols_2[0].number_input('Imputed Datasets Output',key='impute_datasets',value = 10)
@@ -148,7 +148,7 @@ with st.expander("MIDistNet Task Admintration"):
 
             cols_3 = st.columns(4)
             iteration_between_imputation = cols_3[0].number_input('Iteration between Imputation',key='iteration_between_imputation',value = 10 )
-            iteration_until_first_imputation = cols_3[1].number_input('iteration until first imputation',key='iteration_until_first_imputation',value = 20 )
+            iteration_until_first_imputation = cols_3[1].number_input('Iteration until first imputation',key='iteration_until_first_imputation',value = 20 )
 
         model=[]
         for xx in missing_variables:
@@ -183,7 +183,7 @@ with st.expander("MIDistNet Task Admintration"):
 
 with st.expander("Central Site Job Management"):
 
-    st.header('MIDistNet Central site Job')
+    st.header('MIDistNet Central Site Job')
 
     if 'task_detail' not in st.session_state:
         st.session_state['task_detail'] = {}
@@ -192,7 +192,7 @@ with st.expander("Central Site Job Management"):
         st.session_state['run_status'] = False
 
 
-    task_id = st.text_input('task_id')
+    task_id = st.text_input('task_id').strip()
 
     get_task_id_clicked = st.button('Get Task Detail')
     if get_task_id_clicked and len(task_id) > 10:
@@ -209,7 +209,7 @@ with st.expander("Central Site Job Management"):
     if  len( st.session_state['task_detail']) > 0 :
         task_detail = st.session_state['task_detail']
         st.write("Task ID: ", task_detail['task_id'])
-        st.write("Total Remote Sites: ", str(task_detail["total_remote_sites"]))
+        st.write("Total Planned Remote Sites: ", str(task_detail["total_remote_sites"]))
         st.write("Acknowledged Remote Sites :", str(task_detail["registered_remote_sites"]))
         st.write("Method: ", task_detail["method"])
         st.write("Missing variables in column: " ,  task_detail["missing_variables"])
@@ -422,5 +422,5 @@ for (i in 1:length(imp)) {{
                 mime="application/zip"
                 )
     else:
-        st.write('click to run the job acknowledged')
+        st.write('click to run the job')
 
