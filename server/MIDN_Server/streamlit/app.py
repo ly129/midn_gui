@@ -1,7 +1,7 @@
 from flask import Flask
 
 import socket
-
+from requests import get
 
 CUSTOM_OUTPUT_PATH =  'data/'
 
@@ -18,6 +18,11 @@ except:
 else:   
     app.config['server_ip'] = ip_addr 	
 
+try :   
+    app.config['public_ip']  = get('https://api.ipify.org').content.decode('utf8')
+except:
+    app.config['public_ip']  = app.config['server_ip']
+    
 app.config['server_port_from'] = '6600'
 
 app.config['server_app'] = 'https://127.0.0.1'
