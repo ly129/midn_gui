@@ -139,9 +139,9 @@ def register_update():
                 return  jsonify ({'task_id':task_id, 'message': message})
             else:
                 if row[1] == (row[2] + 1) :
-                    cur.execute("update tasks set registered_remote_sites  = registered_remote_sites + 1 , server_port_from = server_port_from + 1,  status = 'registered' where task_id = '{}' ".format(task_id))
+                    cur.execute("update tasks set registered_remote_sites  = registered_remote_sites + 1 , server_port_from = server_port_from + 1,  status = 'acknowledged' where task_id = '{}' ".format(task_id))
                 else:
-                    cur.execute("update tasks set registered_remote_sites  = registered_remote_sites  + 1 , server_port_from = server_port_from + 1 , status = 'registering' where task_id = '{}' ".format(task_id))
+                    cur.execute("update tasks set registered_remote_sites  = registered_remote_sites  + 1 , server_port_from = server_port_from + 1 , status = 'acknowledging' where task_id = '{}' ".format(task_id))
                 cur.execute("INSERT INTO jobs VALUES ('{}','{}','{}','{}','{}','{}')".format(task_id,client_name,client_ip,client_port,server_port,'New'))
                 message = 'Job Added'   
     con.commit()
