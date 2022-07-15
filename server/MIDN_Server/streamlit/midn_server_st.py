@@ -12,12 +12,7 @@ import zipfile
 
 
 import socket
-
-try :
-    hostname = socket.getfqdn()
-    host_ip_addr = socket.gethostbyname_ex(hostname)[2][0]
-except:
-    host_ip_addr =  '127.0.0.1'
+ 
 
 st.title ( "MIDistNet Central Site Management Tools")
 
@@ -76,9 +71,11 @@ with st.expander("MIDistNet Task Admintration"):
     if 'missing_val_model' not in st.session_state:
         st.session_state['missing_val_model'] = {}
 
-    st.caption("Central Host IP address: {}".format(host_ip_addr))
+    st.caption("Central Host container local IP: {}".format(app.config['server_ip']))
+    st.caption("Central Host public IP: {}  *The public IP address may not be accurate due to local IT policy".format(app.config['public_ip']))
 
     st.header('Task list')
+    
 # https://share.streamlit.io/streamlit/example-app-interactive-table/main 
     refresh_clicked = st.button('Refresh' )
     r = requests.post('{}/read_tasks'.format( app.config['server_app']), verify=False)
@@ -88,7 +85,7 @@ with st.expander("MIDistNet Task Admintration"):
 
     if len(task_selected["selected_rows"])> 0 :
         st.write("You selected:",task_selected["selected_rows"][0]["task_id"])
-        st.write("Registed remote sites:")
+        st.write("Acknowledged remote sites:")
         rj = requests.get('{}/read_job/{}'.format( app.config['server_app'],task_selected["selected_rows"][0]["task_id"]), verify=False)
         rj_data = json.loads(rj.json()['data'])
         df_job = pd.DataFrame(rj_data).T
@@ -115,8 +112,8 @@ with st.expander("MIDistNet Task Admintration"):
 
             cols_1 = st.columns(4)
             total_remote_sites = cols_1[0].number_input('Total Remote Sites',key='total_remote_sites',value = 1 )
-            server_ip = cols_1[1].text_input('Server IP address',key='server_ip',value = app.config['server_ip'] )
-            server_port_from = cols_1[2].text_input('Server Port from',key='server_port_from',max_chars = 5,value = app.config['server_port_from'] )
+            server_ip = cols_1[1].text_input('Central Site Public IP',key='server_ip',value = app.config['server_ip'] )
+            server_port_from = cols_1[2].text_input('Central site Public Port from',key='server_port_from',max_chars = 5,value = app.config['server_port_from'] )
 
         cols_2 = st.columns(4) 
         impute_datasets = cols_2[0].number_input('Imputed Datasets Output',key='impute_datasets',value = 10)
@@ -184,9 +181,9 @@ with st.expander("MIDistNet Task Admintration"):
             st.write(r_json['message'])
 
 
-with st.expander("Server Job Management"):
+with st.expander("Central Site Job Management"):
 
-    st.header('MIDistNet Server Job')
+    st.header('MIDistNet Central site Job')
 
     if 'task_detail' not in st.session_state:
         st.session_state['task_detail'] = {}
@@ -213,13 +210,13 @@ with st.expander("Server Job Management"):
         task_detail = st.session_state['task_detail']
         st.write("Task ID: ", task_detail['task_id'])
         st.write("Total Remote Sites: ", str(task_detail["total_remote_sites"]))
-        st.write("Registered Remote Sites :", str(task_detail["registered_remote_sites"]))
+        st.write("Acknowledged Remote Sites :", str(task_detail["registered_remote_sites"]))
         st.write("Method: ", task_detail["method"])
         st.write("Missing variables in column: " ,  task_detail["missing_variables"])
         st.write("Model: ", task_detail["model"])
         st.write("Task Status: ", task_detail["status"])
-        st.write("Server IP: ", task_detail["server_ip"])
-#        st.write("Server Port: ", task_detail["server_port_from"])
+        st.write("Central Site Public IP: ", task_detail["server_ip"])
+#        st.write("Central Site Public Port: ", task_detail["server_port_from"])
 
 
     data_file = './data/dummy.txt'
@@ -256,7 +253,7 @@ with st.expander("Server Job Management"):
     if run_button :
 
       if  st.session_state['task_detail']['total_remote_sites'] != st.session_state['task_detail']['registered_remote_sites'] and  not st.session_state['task_detail']['method'].startswith('IMI') :
-        st.write("Not all remote sites regisitered!")
+        st.write("Not all remote sites acknowledged!")
 
       else:
         r = requests.get('{}/read_task_jobs/{}'.format( app.config['server_app'],task_id), verify=False)
@@ -425,5 +422,5 @@ for (i in 1:length(imp)) {{
                 mime="application/zip"
                 )
     else:
-        st.write('click to run the job regisitered')
+        st.write('click to run the job acknowledged')
 
