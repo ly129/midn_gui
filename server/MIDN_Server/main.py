@@ -129,7 +129,7 @@ def register_update():
         cur.execute("select * from jobs where task_id = '{}' and client_name = '{}'".format(task_id, client_name))
         job_row = cur.fetchone()
         if job_row is not None:
-            server_port = job_row[3]
+            server_port = job_row[4]
             cur.execute("update jobs set status='New', client_ip='{}',client_port = '{}',server_port = '{}'  where task_id = '{}' and client_name = '{}'".format(client_ip,client_port,server_port,task_id,client_name))
             message = 'Job Updated'
         else:
