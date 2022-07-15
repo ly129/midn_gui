@@ -238,16 +238,9 @@ def read_task(task_id):
 @app.route('/read_job/<task_id>')
 def read_job(task_id):
     con = sqlite3.connect('controller.db')
-    df = pd.read_sql_query("SELECT client_name as remote_site, client_ip as remote_ip, client_port as remote_port, server_port FROM jobs where task_id = '{}'".format(task_id), con)
+    df = pd.read_sql_query("SELECT client_name as remote_site, client_ip as remote_site_public_ip, client_port as remote_site_public_port, server_port as central_site_public_port FROM jobs where task_id = '{}'".format(task_id), con)
     con.close()
     return  jsonify ({'task_id':task_id,'data': df.to_json(orient="index")})
-  
-@app.route('/read_task_jobs/<task_id>')
-def read_task_jobs(task_id):
-    con = sqlite3.connect('controller.db')
-    df = pd.read_sql_query("SELECT * FROM jobs where task_id = '{}'".format(task_id), con)
-    con.close()
-    return  jsonify ({'task_id':task_id,'data': df.to_json(orient="records")})
 
 
 @app.route('/read_jobs')
@@ -261,21 +254,7 @@ def read_jobs():
     con.commit()
     con.close()
     return messages
-
-    return task_id
-
-@app.route('/result/<task_id>')
-def get_result(task_id):
-
-    
-    content = 'Result Invalid'
-    with  open('./data/{}.txt'.format(task_id)) as f:
-        content = f.read()
-
-    return Response(content, mimetype='text/plain')
-
-
-
+ 
 @app.route('/display/<path>/<filename>')
 def display_image(path,filename):
         #print('display_image filename: ' + filename)
@@ -289,7 +268,6 @@ def custom_output(filename):
 #  Check job status Summary
 @app.route('/status_summary/<session_id>')
 def check_status_summary(session_id):
-
         return jsonify({'session_id': session_id})
 
 
@@ -298,7 +276,6 @@ def check_status_summary(session_id):
 #  Check job status
 @app.route('/status/<session_id>')
 def check_status(session_id):
-
         return jsonify({'session_id': session_id})
 
 
