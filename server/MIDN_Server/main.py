@@ -270,6 +270,12 @@ def custom_output(filename):
 def check_status_summary(session_id):
         return jsonify({'session_id': session_id})
 
+@app.route('/read_task_jobs/<task_id>')
+def read_task_jobs(task_id):
+    con = sqlite3.connect('controller.db')
+    df = pd.read_sql_query("SELECT * FROM jobs where task_id = '{}'".format(task_id), con)
+    con.close()
+    return  jsonify ({'task_id':task_id,'data': df.to_json(orient="records")})
 
 
 
