@@ -11,14 +11,16 @@ with open('config.json', 'r') as f:
     config = json.load(f)
 
 
+st.title( "MIDistNet Remote Site Management Tools")
 
-st.title( "MIDistNet Remote Server Management Tools")
-
-st.header('MIDistNet Remote Client information')
+st.header('MIDistNet Remote site configure information')
 
 client_name = st.text_input('Remote site name:', config['host_name'])
-server_app_addr =   st.text_input('Central Server Applicaiton URL:', config['server_app'])
-save_config_clicked  = st.button('Save configure')
+server_app_addr =   st.text_input('Central Site Web Applicaiton URL:', config['server_app'])
+if config['remote_public_ip'] == '127.0.0.1'
+    config['remote_public_ip'] = app.config['public_ip']
+remote_public_ip =   st.text_input('remote public IP address:', config['remote_public_ip'])
+save_config_clicked  = st.button('Save configuration')
 
 if save_config_clicked: 
     config['host_name'] = client_name.strip()
@@ -27,7 +29,7 @@ if save_config_clicked:
         json.dump(config, f)
 
 
-st.header('MIDistNet Remote Job')
+st.header('MIDistNet Remote Site Job')
 
 if 'task_id' not in st.session_state:
     st.session_state['task_id'] = ''
@@ -38,9 +40,9 @@ if 'task_detail' not in st.session_state:
 if 'server_data' not in st.session_state:
     st.session_state['server_data'] = {}
 
-task_id = st.text_input('task_id')
-client_ip = st.text_input('Remote IP:', app.config['client_ip'])
-client_port = st.text_input('Remote Port:',  app.config['client_port'])
+task_id = st.text_input('task_id').scrip()
+client_ip = st.text_input('Remote Site Public IP:', remote_public_ip)
+client_port = st.text_input('Remote Site Public Port:',  app.config['client_port'])
 
 get_task_id_clicked = st.button('Get Task Detail')
 if get_task_id_clicked and len(task_id) > 10:
@@ -58,16 +60,17 @@ if get_task_id_clicked and len(task_id) > 10:
 if  st.session_state['task_id'] != '':
         task_detail = st.session_state['task_detail']
         st.write("Task ID: ", task_detail['task_id'])
-        st.write("Total Remote Sites: ", str(task_detail["total_remote_sites"]))
-        st.write("Registered Remote Sites :", str(task_detail["registered_remote_sites"]))
+        st.write("Total planned Remote Sites: ", str(task_detail["total_remote_sites"]))
+        st.write("Acknowledged Remote Sites :", str(task_detail["registered_remote_sites"]))
         st.write("Method: ", task_detail["method"])
         st.write("Missing variables in column: " ,  task_detail["missing_variables"])
         st.write("Model: ", task_detail["model"])
-        st.write("Task Status: ", task_detail["status"])
-        st.write("Server IP: ", task_detail["server_ip"])
-#        st.write("Server Port: ", task_detail["server_port_from"])
+#        st.write("Task Status: ", task_detail["status"])
+        st.write("Central Site Public IP: ", task_detail["server_ip"])
+#        st.write("Central Site Public Port: ", task_detail["server_port_from"])
 
-regisiter_button = st.button('Regisiter / check')
+regisiter_button = st.button('Acknowledge')
+
 if regisiter_button :        
     if len(task_id) > 10 : 
         jsondata = {'task_id':task_id,
