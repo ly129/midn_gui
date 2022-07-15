@@ -112,7 +112,7 @@ with st.expander("MIDistNet Task Admintration"):
 
             cols_1 = st.columns(4)
             total_remote_sites = cols_1[0].number_input('Total Remote Sites',key='total_remote_sites',value = 1 )
-            server_ip = cols_1[1].text_input('Central Site Public IP',key='server_ip',value = app.config['server_ip'] )
+            server_ip = cols_1[1].text_input('Central Site Public IP',key='server_ip',value = app.config['public_ip'] )
             server_port_from = cols_1[2].text_input('Public Port from',key='server_port_from',max_chars = 5,value = app.config['server_port_from'] )
 
         cols_2 = st.columns(4) 
