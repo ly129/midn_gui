@@ -72,7 +72,7 @@ with st.expander("MIDistNet Task Admintration"):
         st.session_state['missing_val_model'] = {}
 
     st.caption("Central Host container local IP: {}".format(app.config['server_ip']))
-    st.caption("Central Host public IP: {}  *The public IP address may not be accurate due to local IT policy".format(app.config['public_ip']))
+    st.caption("Central Host public IP: {}   (The public IP address may not be accurate due to local IT policy)".format(app.config['public_ip']))
 
     st.header('Task list')
     
