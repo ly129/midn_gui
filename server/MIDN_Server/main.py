@@ -222,7 +222,7 @@ def start_job():
 def read_tasks():
     con = sqlite3.connect('controller.db')
     cur = con.cursor()
-    df = pd.read_sql_query("SELECT * from tasks", con)
+    df = pd.read_sql_query("SELECT task_id, total_planned_remote_sites, registered_remote_sites as acknowledged_remote_sites,method ,imputed_datasets, missing_variables,model text, iteration_between_imputation ,iteration_until_first_imputation , server_ip as central_public_ip, server_port_from as central_public_port_from, job_creation_dttm text from tasks", con)
     result = df.to_json(orient="records")
     con.close()
     return jsonify ( {'data': result})
