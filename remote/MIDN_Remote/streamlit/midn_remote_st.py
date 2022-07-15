@@ -41,7 +41,9 @@ if 'task_detail' not in st.session_state:
 if 'server_data' not in st.session_state:
     st.session_state['server_data'] = {}
 
-task_id = st.text_input('task_id').strip()
+st.caption("Remote Host container local IP: {}".format(app.config['server_ip']))
+
+task_id = st.text_input('Task id').strip()
 client_ip = st.text_input('Remote Site Public IP:', remote_public_ip)
 client_port = st.text_input('Remote Site Public Port:',  app.config['client_port'])
 
