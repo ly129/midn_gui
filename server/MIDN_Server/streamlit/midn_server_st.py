@@ -19,7 +19,7 @@ try :
 except:
     host_ip_addr =  '127.0.0.1'
 
-st.title ( "MIDistNet Central Server Management Tools")
+st.title ( "MIDistNet Central Site Management Tools")
 
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
