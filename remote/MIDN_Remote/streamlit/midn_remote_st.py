@@ -25,6 +25,7 @@ save_config_clicked  = st.button('Save configuration')
 if save_config_clicked: 
     config['host_name'] = client_name.strip()
     config['server_app'] = server_app_addr.strip()
+    config['remote_public_ip'] = remote_public_ip.strip()
     with open('config.json', 'w') as f:
         json.dump(config, f)
 
