@@ -21,7 +21,7 @@ else:
 try :   
     app.config['public_ip']  = get('https://api.ipify.org').content.decode('utf8')
 except:
-    app.config['public_ip']  = app.config['server_ip']
+    app.config['public_ip']  = app.config['client_ip']
     
 app.config['client_port'] = '6000'
 app.config['client_name'] = 'Please change the remote site name'
