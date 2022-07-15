@@ -1,2 +1,4 @@
 {"server_app": "http://127.0.0.1", 
-"host_name": "Remote 01"}
+"host_name": "Remote 01",
+"remote_public_ip": "127.0.0.1"
+}
