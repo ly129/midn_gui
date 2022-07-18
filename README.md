@@ -56,7 +56,7 @@
     (The SSL certification is local signed for testing, please ignore the error when enter this URL )
 
      <picture>
-     <img alt="Screen capre of central machine inital login in." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_Ini.JPG">
+     <img alt="Screen capture of central machine inital login in." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_Ini.JPG" width="60%" height="60%">
  
      </picture>
      
@@ -70,9 +70,9 @@
     http://192.168.1.15   
     
   There is a onetime setup on remote site:
+  
      <picture>
-     <img alt="Screen capre of onetime remote site setup." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Remote_Config.JPG">
- 
+     <img alt="Screen capture of onetime remote site setup." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Remote_Config.JPG"  width="60%" height="60%">
      </picture>
   
    The below information is reuiqred:
@@ -81,12 +81,19 @@
    Remote site public IP address: The program will try to idenfify the public IP address. But, if it is not accurate, manual update is reuqired.
     
  * Add a task on central site machine
+   
+   By clicking "Refresh" under the "Task list", we can find and list the detail of tasks registired 
+   
+    <picture>
+     <img alt="Screen capture of task list." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_task_admin_1.JPG"  width="60%" height="60%">
+     </picture>    
     
-    
+   
+   To add a new task, enter all the computation parameters.
+     <picture>
+     <img alt="Screen capture of add a task." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_task_admin_2.JPG"  width="60%" height="60%">
+     </picture>       
       
- * 
- 
- 
  
  * Acknowledge a task on remote site machine
  
