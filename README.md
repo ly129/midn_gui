@@ -55,8 +55,12 @@
     
     (The SSL certification is local signed for testing, please ignore the error when enter this URL )
 
-
-* run remote server
+     <picture>
+     <img alt="Screen capre of central machine inital login in." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_Ini.JPG">
+ 
+     </picture>
+     
+* Run remote server
    ```  
     sudo docker run  -it -d -p 80:80 -p 6000:6000 --name=midn_remote_1 luyaochen/midn_remote
    ```    
@@ -65,12 +69,22 @@
     
     http://192.168.1.15   
     
+  There is a onetime setup on remote site:
+     <picture>
+     <img alt="Screen capre of onetime remote site setup." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Remote_Config.JPG">
+ 
+     </picture>
+  
+   The below information is reuiqred:
+   Remote Site name  - To idenfiry the site name
+   Central Site Web Applicaiton URL: The public IP address and port of the central mahine
+   Remote site public IP address: The program will try to idenfify the public IP address. But, if it is not accurate, manual update is reuqired.
     
  * Add a task on central site machine
     
     
       
- * Onetime setup on remote site machine
+ * 
  
  
  
