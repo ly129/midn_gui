@@ -99,7 +99,7 @@
       
    A task ID will be genereated. The central site need to send this ID to all remote site for there acknowledgement (eg, by email the task ID to remote sites.).
  
- * Acknowledge a task on remote site machine
+7. Acknowledge a task on remote site machine
    
    By entering the "task id" and clicking "Get Task Detail", the remote side get read the task detail; by enter the remote site public IP address and port, the remote site acknowledges the task.
    
@@ -119,13 +119,13 @@
    
    Kill all R process -  Kill all runnning R programs. It is userful of the screen get refreshed or quite when a job is running (in this case, we lost the track of process ID and have to kill all R process). 
    
- 7. Run the job on central site machine
+ 8. Run the job on central site machine
    
-   Once all remote sites acknowledge the task and start their job, central site can run the job by uploading its own file.
-   After job finising, the central site can download the zipped result sets.
+      Once all remote sites acknowledge the task and start their job, central site can run the job by uploading its own file.
+      After job finising, the central site can download the zipped result sets.
 
-   <picture>
-   <img alt="Screen capture of central job." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_job.JPG"  width="60%" height="60%">
-   </picture> 
-   
+      <picture>
+      <img alt="Screen capture of central job." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_job.JPG"  width="60%" height="60%">
+      </picture> 
+
    
