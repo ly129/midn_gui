@@ -32,20 +32,27 @@
    **For Central Machine:** 
    
    Local IP address: 192.168.0.23
+   
    Port listening for web application / MIDN Central Controller: 443 
+   
    Port listening for MIDN Computing: 6600 - 6700
    
    Public IP: 129.103.12.18 
+   
    Port listening for web application: 5443 
+   
    Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites paticipanted. In this sample, we open 6600 only)
    
    **For Remote Machine: **
    
    Local IP address: 192.168.1.15
+   
    Port listening for MIDN Remote Controller: 80 
+   
    Port listening for MIDN Computing: 6000  
    
    Public IP: 202.18.15.63
+   
    Port listening for MIDN Computing: 6000   ( Remote site with different public IP address can use the same port)
    
    
