@@ -1,10 +1,10 @@
 
-* Prerequest:
+1. Prerequisite:
    
    Please refer to  https://docs.docker.com/get-docker/ to install docker service on your testing machine.
 
 
-* Pull the latest docker images:
+2. Pull the latest docker images:
 
     The docker images have been commited to dockerhub
     
@@ -17,7 +17,7 @@
     sudo docker pull luyaochen/midn_remote:latest
     ```
 
-* Plan the networking
+3. Plan the networking
 
    Before setup the network, we need to determine the some network information:
    
@@ -43,7 +43,7 @@
    Port listening for MIDN Computing: 6000   ( Remote site with different public IP address can use the same port)
    
    
-* run central site 
+4. Create and run dokcer container on  central site machine
      ```
      # create and start a docker container to run the central site applications
      sudo docker run  -it -d -p 443:443 -p 6600-6700:6600-6700 --name=midn_central luyaochen/midn_central
@@ -60,12 +60,12 @@
  
      </picture>
      
-* Run remote server
+5. Create and run dokcer container on remote site machine
    ```  
-    sudo docker run  -it -d -p 80:80 -p 6000:6000 --name=midn_remote_1 luyaochen/midn_remote
+    sudo docker run  -it -d -p 80:80 -p 6000:6000 --name=midn_remote luyaochen/midn_remote
    ```    
    
-  The remote site MIDN Controller can be accessed by:
+  The remote site MIDN Controller can now be accessed by:
     
     http://192.168.1.15   
     
@@ -76,8 +76,11 @@
      </picture>
   
    The below information is reuiqred:
+   
    Remote Site name  - To idenfiry the site name
+   
    Central Site Web Applicaiton URL: The public IP address and port of the central mahine
+   
    Remote site public IP address: The program will try to idenfify the public IP address. But, if it is not accurate, manual update is reuqired.
     
  * Add a task on central site machine
@@ -94,12 +97,13 @@
      <img alt="Screen capture of add a task." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_task_admin_2.JPG"  width="60%" height="60%">
      </picture>       
       
-   A task ID will be genereated. The central site need to send this ID to all remote site for there acknowledgement.
+   A task ID will be genereated. The central site need to send this ID to all remote site for there acknowledgement (eg, by email the task ID to remote sites.).
  
  * Acknowledge a task on remote site machine
    
-   By entering the "task id" and clicking "Get Task Detail", the remote side get read the task detail; by enter the remote site public IP address and port, the remote site acknowledge the task.
-   Note: the remote must "Acknowledge" again before running the job, even they had acknowledged before.
+   By entering the "task id" and clicking "Get Task Detail", the remote side get read the task detail; by enter the remote site public IP address and port, the remote site acknowledges the task.
+   
+   Note: the remote must "Acknowledge" (again) before running the job, even they had acknowledged before.
       
     <picture>
      <img alt="Screen capture of acknowledge a task." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Remote_job.JPG"  width="60%" height="60%">
