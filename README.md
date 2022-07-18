@@ -21,7 +21,7 @@
 
    Before setup the network, we need to determine the some network information:
    
-   Here is a sample to be used for a 1 central + 1 remote experientment. The IP address in this diagram will be used in the below configuration.
+   Here is a sample to be used for a 1 central + 1 remote experientment. The IP address in this diagram will be used in the below configuration. (The container IP address is no used unless remote and central container running on the same machine)
    
      <picture>
      <img alt="Sample network diagram" src="https://github.com/Luyaochen1/midn_gui/blob/main/MIDN%20Netwok%20Diagram.png">
