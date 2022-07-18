@@ -41,7 +41,7 @@
    
    Public IP: 129.103.12.18 
    
-   Port listening for web application: 5443 
+   Port listening for web application: 5443 (firewall / router will forward 5443 to port 443 of 192.168.0.23)
    
    Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites paticipanted. In this sample, we open 6600 only)
    
