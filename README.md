@@ -94,22 +94,34 @@
      <img alt="Screen capture of add a task." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_task_admin_2.JPG"  width="60%" height="60%">
      </picture>       
       
+   A task ID will be genereated. The central site need to send this ID to all remote site for there acknowledgement.
  
  * Acknowledge a task on remote site machine
- 
- 
    
-    ``` 
-    http://remote_ip:remote_port
-     ```    
-      where temote_ip is the host running the docker ( not the IP of remote container)
-    
-    change and save the defaul setup on remote server
-    
-    - update the site name
-    
-    - update the central server app url:
-    
-      eg, if you get "Central Host IP address: 172.17.0.26" on central server, setup http://172.17.0.26  on all remote sites
+   By entering the "task id" and clicking "Get Task Detail", the remote side get read the task detail; by enter the remote site public IP address and port, the remote site acknowledge the task.
+   Note: the remote must "Acknowledge" again before running the job, even they had acknowledged before.
       
-
+    <picture>
+     <img alt="Screen capture of acknowledge a task." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Remote_job.JPG"  width="60%" height="60%">
+     </picture> 
+   
+   By uploadin a data file, the remote site can run the remote job. There is an explnation of all the buttons:
+   
+   Run - start a remote site job. User must click "Acknowledge" before run the job each time.
+   
+   Refresh - Get the status of current job.
+   
+   Stop - Stop the job
+   
+   Kill all R process -  Kill all runnning R programs. It is userful of the screen get refreshed or quite when a job is running (in this case, we lost the track of process ID and have to kill all R process). 
+   
+  * Run the job on central site machine
+   
+   Once all remote sites acknowledge the task and start their job, central site can run the job by uploading its own file.
+   After job finising, the central site can download the zipped result sets.
+   
+       <picture>
+     <img alt="Screen capture of central job." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_job.JPG"  width="60%" height="60%">
+     </picture> 
+   
+   
