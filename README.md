@@ -45,7 +45,7 @@
    
    Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites paticipanted. In this sample, we open 6600 only)
    
-   **For Remote Machine: **
+    **For Remote Machine:** 
    
    Local IP address: 192.168.1.15
    
