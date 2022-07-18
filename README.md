@@ -33,7 +33,9 @@
    
    Local IP address: 192.168.0.23
    
-   Port listening for web application / MIDN Central Controller: 443 
+   Port listening for web application: 443 (open to public)
+   
+   Port listening for MIDN Central Controller: 80 (open to local only)
    
    Port listening for MIDN Computing: 6600 - 6700
    
@@ -64,7 +66,7 @@
     
     The central site MIDN Controller can be accessed by:
     
-    https://192.168.0.23/midn_central/
+    http://192.168.0.23
     
     (The SSL certification is local signed for testing, please ignore the error when enter this URL )
 
@@ -92,7 +94,7 @@
 
       Remote Site name  - To idenfiry the site name
 
-      Central Site Web Applicaiton URL: The public IP address and port of the central mahine
+      Central Site Web Applicaiton URL: The public IP address and port of the central mahine  (in this sample -  https://129.103.12.18:5443 )
 
       Remote site public IP address: The program will try to idenfify the public IP address. But, if it is not accurate, manual update is reuqired.
     
