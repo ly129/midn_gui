@@ -65,25 +65,25 @@
     sudo docker run  -it -d -p 80:80 -p 6000:6000 --name=midn_remote luyaochen/midn_remote
    ```    
    
-  The remote site MIDN Controller can now be accessed by:
+     The remote site MIDN Controller can now be accessed by:
+
+       http://192.168.1.15   
+
+     There is a onetime setup on remote site:
+
+        <picture>
+        <img alt="Screen capture of onetime remote site setup." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Remote_Config.JPG"  width="60%" height="60%">
+        </picture>
+
+      The below information is reuiqred:
+
+      Remote Site name  - To idenfiry the site name
+
+      Central Site Web Applicaiton URL: The public IP address and port of the central mahine
+
+      Remote site public IP address: The program will try to idenfify the public IP address. But, if it is not accurate, manual update is reuqired.
     
-    http://192.168.1.15   
-    
-  There is a onetime setup on remote site:
-  
-     <picture>
-     <img alt="Screen capture of onetime remote site setup." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Remote_Config.JPG"  width="60%" height="60%">
-     </picture>
-  
-   The below information is reuiqred:
-   
-   Remote Site name  - To idenfiry the site name
-   
-   Central Site Web Applicaiton URL: The public IP address and port of the central mahine
-   
-   Remote site public IP address: The program will try to idenfify the public IP address. But, if it is not accurate, manual update is reuqired.
-    
- * Add a task on central site machine
+6. Add a task on central site machine
    
    By clicking "Refresh" under the "Task list", we can find and list the detail of tasks registired 
    
@@ -119,7 +119,7 @@
    
    Kill all R process -  Kill all runnning R programs. It is userful of the screen get refreshed or quite when a job is running (in this case, we lost the track of process ID and have to kill all R process). 
    
-  * Run the job on central site machine
+ 7. Run the job on central site machine
    
    Once all remote sites acknowledge the task and start their job, central site can run the job by uploading its own file.
    After job finising, the central site can download the zipped result sets.
