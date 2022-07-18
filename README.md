@@ -22,6 +22,11 @@
    Before setup the network, we need to determine the some network information:
    
    Here is a sample to be used for a 1 central + 1 remote experientment
+     <picture>
+     <img alt="Sample network diagram" src="https://github.com/Luyaochen1/midn_gui/blob/main/MIDN%20Netwok%20Diagram.png" width="80%" height="80%">
+ 
+     </picture>   
+   
    
    **For Central Machine:** 
    
