@@ -1,46 +1,83 @@
 
-prerequest:
+* Prerequest:
    
-   Please refer to  https://docs.docker.com/get-docker/ to install docker server on your testing machine.
+   Please refer to  https://docs.docker.com/get-docker/ to install docker service on your testing machine.
 
 
-1. the docker images have been commited to dockerhub
+* Pull the latest docker images:
+
+    The docker images have been commited to dockerhub
     
-    run the below commands to get the latest update:
+    run the below commands to get the latest program update:
     ```
-    sudo docker pull luyaochen/midn_server:latest
+    #On Central Machine:
+    sudo docker pull luyaochen/midn_central:latest
     
+    #On Remote Machine
     sudo docker pull luyaochen/midn_remote:latest
     ```
+
+* Plan the networking
+
+   Before setup the network, we need to determine the some network information:
    
-2. run central server 
+   Here is a sample to be used for a 1 central + 1 remote experientment
+   
+   **For Central Machine:** 
+   
+   Local IP address: 192.168.0.23
+   Port listening for web application / MIDN Central Controller: 443 
+   Port listening for MIDN Computing: 6600 - 6700
+   
+   Public IP: 129.103.12.18 
+   Port listening for web application: 5443 
+   Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites paticipanted. In this sample, we open 6600 only)
+   
+   **For Remote Machine: **
+   
+   Local IP address: 192.168.1.15
+   Port listening for MIDN Remote Controller: 80 
+   Port listening for MIDN Computing: 6000  
+   
+   Public IP: 202.18.15.63
+   Port listening for MIDN Computing: 6000   ( Remote site with different public IP address can use the same port)
+   
+   
+* run central site 
      ```
-    sudo docker run  -it -d -p ssss:80 --name=midn_server luyaochen/midn_server
+     # create and start a docker container to run the central site applications
+     sudo docker run  -it -d -p 443:443 -p 6600-6700:6600-6700 --name=midn_central luyaochen/midn_central
      ```    
-      where ssss is the server GUI port exposed to external network
+    
+    The central site MIDN Controller can be accessed by:
+    
+    https://192.168.0.23/midn_central/
+    
+    (The SSL certification is local signed for testing, please ignore the error when enter this URL )
 
-3. run remote server
+
+* run remote server
    ```  
-    sudo docker run  -it -d -p remote_port_1:80 --name=midn_remote_1 luyaochen/midn_remote
+    sudo docker run  -it -d -p 80:80 -p 6000:6000 --name=midn_remote_1 luyaochen/midn_remote
    ```    
-      where remote_port_1 is the remote server 1 GUI port exposed to external network
+   
+  The remote site MIDN Controller can be accessed by:
     
-   ```    
-    sudo docker run  -it -d -p remote_port_2:80 --name=midn_remote_2 luyaochen/midn_remote 
-   ```    
-      where remote_port_2 is the remote server 2 GUI port exposed to external network
-
-~~ the below demo URL assumes that the remote and central docker container running on the same host
-
- 4. Access central server
-    ```
-    http://cental_ip:central_port/midn_server/             
-    ```
-    the ending "/" is of the URL a must
+    http://192.168.1.15   
     
-    where central_ip is the host running the docker ( not the IP of central container)   
+    
+ * Add a task on central site machine
+    
+    
       
- 6. Access remote server
+ * Onetime setup on remote site machine
+ 
+ 
+ 
+ * Acknowledge a task on remote site machine
+ 
+ 
+   
     ``` 
     http://remote_ip:remote_port
      ```    
