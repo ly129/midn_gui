@@ -61,7 +61,7 @@
 4. Create and run dokcer container on  central site machine
      ```
      # create and start a docker container to run the central site applications
-     sudo docker run  -it -d -p 443:443 -p 6600-6700:6600-6700 --name=midn_central luyaochen/midn_central
+     sudo docker run  -it -d -p 443:443 -p 80:80  -p 6600-6700:6600-6700 --name=midn_central luyaochen/midn_central
      ```    
     
     The central site MIDN Controller can be accessed by:
