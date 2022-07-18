@@ -123,9 +123,9 @@
    
    Once all remote sites acknowledge the task and start their job, central site can run the job by uploading its own file.
    After job finising, the central site can download the zipped result sets.
-   
-       <picture>
-     <img alt="Screen capture of central job." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_job.JPG"  width="60%" height="60%">
-     </picture> 
+
+   <picture>
+   <img alt="Screen capture of central job." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_job.JPG"  width="60%" height="60%">
+   </picture> 
    
    
