@@ -23,5 +23,5 @@ Docker Desktop V.S. Docker Engine
 
   https://docs.docker.com/engine/install/ 
 
-  You must follow the instruction of your Linux OS version.  
+  You must follow the specific instruction of your Linux OS version.  
 
