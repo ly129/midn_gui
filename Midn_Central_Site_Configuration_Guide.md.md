@@ -3,7 +3,7 @@
    
    Docker is the only software required to run the GUI version of MIDN network. 
    
-      https://github.com/Luyaochen1/midn_gui/blob/main/Prerequisite_Docker.MD
+      [a relative link](Prerequisite_Docker.MD)
    
 
 2. Plan the central site network
