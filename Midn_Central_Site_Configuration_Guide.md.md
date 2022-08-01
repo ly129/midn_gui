@@ -30,21 +30,21 @@
 
       </picture>   
      
-      **For Central site Machine:** 
+       **For Central site Machine:** 
 
       Local IP address: 192.168.0.23
-
-      Port listening for web application: 5443 (open to public)
 
       Port listening for MIDN Central Controller: 5080 (open to local only)
 
       Port listening for MIDN Computing: 6600 - 6700
-
+      
       Public IP: 129.103.12.18 
 
-      Port listening for web application: 5443 (firewall / router will forward 5443 to port 5443 of 192.168.0.23)
+      Port listening for API: 5443 (firewall / router will forward 5443 to port 5443 of 192.168.0.23)
+      
+      Central site API URL: https://129.103.12.18:5443   (the remote site(s) requires this URL to acknowledge a task)
 
-      Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites participated. In this sample, we open 6600 only as there is only one remote site)
+      Port listening for MIDN Computing: 6600 - 6700   (depends on how many remote sites participated. In this sample, we open 6600 only as there is only one remote site)
 
 
 3. Pull the latest docker images:
