@@ -148,6 +148,7 @@ def register_update():
     con.close()
     return  jsonify ({'task_id':task_id,'core_function':row[3],'server_ip':row[9],'server_port':server_port, 'client_port':client_port,'missing_variables':row[5], 'message': message})
 
+  
 
 def start_central(task_id):
 
@@ -235,6 +236,19 @@ def read_task(task_id):
     con.close()
     return  jsonify ({'task_id':task_id,'data': df.to_json(orient="index")})
 
+@app.route('/delete_task/<task_id>')
+def delete_task(task_id):
+    con = sqlite3.connect('controller.db')
+    con = sqlite3.connect('controller.db')
+    cur = con.cursor()
+    cur.execute("delete from jobs where task_id = '{}'".format(task_i))
+    cur.execute("delete from tasks where task_id = '{}'".format(task_i))    
+    con.commit()
+    con.close()
+    return  jsonify ({'task_id':task_id,'message': 'Task Deleted'})
+
+   
+  
 @app.route('/read_job/<task_id>')
 def read_job(task_id):
     con = sqlite3.connect('controller.db')
