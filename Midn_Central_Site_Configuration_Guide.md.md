@@ -8,11 +8,13 @@
 
 2. Plan the central site network
 
-   To run the central site of a MIDN networl, the site must expose two type of the ports to the public internet:
+   * To run the central site of a MIDN networl, the site must expose two type of the ports to the public internet:
    
-   * API port - The API is used for central and remote site(s) to exchange the informmation of computiaon protocal and network setup.
+      * API port - The API is used for central and remote site(s) to exchange the informmation of computiaon protocal and network setup.
+
+      * MIDN network port - The cetral site has one dedicidate port to lisiten to each remote site. Thus, if there are 10 remote sites invloved in computaiton, the central site needs 10 computation ports open to public.
+
    
-   * MIDN network port - The cetral site has one dedicidate port to lisiten to each remote site. Thus, if there are 10 remote sites invloved in computaiton, the central site needs 10 computation ports open to public.
   
 
 4. Pull the latest docker images:
