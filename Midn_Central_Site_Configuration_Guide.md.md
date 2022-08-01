@@ -15,6 +15,7 @@
       * MIDN network port - The cetral site has one dedicidate port to lisiten to each remote site. Thus, if there are 10 remote sites invloved in computaiton, the central site needs 10 computation ports open to public.
 
    
+    *  There are 3 IP addresses invloved the network  
   
 
 4. Pull the latest docker images:
