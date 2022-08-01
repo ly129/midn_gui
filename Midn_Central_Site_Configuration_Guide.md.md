@@ -58,7 +58,13 @@
     # On the Central site Machine:
     docker pull luyaochen/midn_central:latest
     ```   
-    On Linux machine, you may need to add "sudo" in front of the command. 
+    On a Linux machine, you may need to add "sudo" in front of the command. 
+    
+    All Docker command needs to run in a command line ( or Terminal) windows. 
+
+    For windows: https://www.dell.com/support/kbdoc/en-in/000130703/the-command-prompt-what-it-is-and-how-to-use-it-on-a-dell-system
+ 
+    For Mac:  https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac    
         
 4. Create and run a Docker container on central site machine
 
