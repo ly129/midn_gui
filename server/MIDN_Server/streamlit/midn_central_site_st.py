@@ -90,7 +90,7 @@ with st.expander("MIDistNet Task Admintration"):
             post_curl = '{}/delete_task/{}'.format(app.config['server_app'],task_selected["selected_rows"][0]["task_id"])
             r = requests.get(post_curl, verify=False)
             r_json = json.loads(r.json()['message'])
-            if r_json = 'Task Deleted':
+            if r_json == 'Task Deleted':
                 st.write("Task Deleted")
         st.write("Acknowledged remote sites:")
         rj = requests.get('{}/read_job/{}'.format( app.config['server_app'],task_selected["selected_rows"][0]["task_id"]), verify=False)
