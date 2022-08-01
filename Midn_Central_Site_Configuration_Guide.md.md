@@ -8,15 +8,43 @@
 
 2. Plan the central site network
 
-   * To run the central site of a MIDN networl, the site must expose two type of the ports to the public internet:
+   * To run the central site of a MIDN network, the site must expose two type of the ports to the public internet:
    
-      * API port - The API is used for central and remote site(s) to exchange the informmation of computiaon protocal and network setup.
+      * API port - The API is used for central and remote site(s) to exchange the information of computation protocol and network setup.
 
-      * MIDN network port - The cetral site has one dedicidate port to lisiten to each remote site. Thus, if there are 10 remote sites invloved in computaiton, the central site needs 10 computation ports open to public.
+      * MIDN network port - The central site has one dedicate port to listen to each remote site. Thus, if there are 10 remote sites involved in computation, the central site needs 10 computation ports open to public.
 
    
-    *  There are 3 IP addresses invloved the network  
-  
+    * There are 3 IP addresses involved the network  
+    
+       *   The public IP address:  The remote site will use the public IP address to communicate with central site
+
+       *   The central site machine host IP address:  This is the IP address of the machine running the Docker. The user on the central site will use this IP address to access the GUI application 
+       
+       *   The Docker container IP address: While running the MIDN Central site, the Docker will create a container (instance) to run the application. There is an internal IP address was assigned to this container. Unless we try the MIDN network central and remote sites on the same host (this scenario will be explained in a separate document), this IP address is transparent to the users.
+
+   *  Here is a sample to be used for a 1 central + 1 remote experientment. The IP address (not real, for the purpose of explanation only) in this diagram will be used in the below configuration. (The container IP address is no used unless remote and central controllers running on the same machine)
+   
+     <picture>
+     <img alt="Sample network diagram" src="https://github.com/Luyaochen1/midn_gui/blob/main/MIDN%20Netwok%20Diagram.png">
+ 
+     </picture>   
+     
+   **For Central Machine:** 
+   
+   Local IP address: 192.168.0.23
+   
+   Port listening for web application: 5443 (open to public)
+   
+   Port listening for MIDN Central Controller: 5080 (open to local only)
+   
+   Port listening for MIDN Computing: 6600 - 6700
+   
+   Public IP: 129.103.12.18 
+   
+   Port listening for web application: 5443 (firewall / router will forward 5443 to port 5443 of 192.168.0.23)
+   
+   Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites paticipanted. In this sample, we open 6600 only as there is only one remote site)
 
 4. Pull the latest docker images:
 
