@@ -7,7 +7,7 @@ The GUI implementation of MIDN network is running on Docker. Thus, we need to in
 Docker Desktop V.S. Docker Engine 
 ------------
 
-Running Docker on Windows / Mac / GUI version of Linux requires Docker Desktop version.
+* Running Docker on Windows / Mac / GUI version of Linux requires Docker Desktop version.
 
 Please refer to the below links (from Official Docker documentation) for the OS specific requirements and installation instruction.
 
@@ -17,7 +17,7 @@ Mac OS:  https://docs.docker.com/desktop/install/mac-install/
 
 Linux:  https://docs.docker.com/desktop/install/linux-install/
 
-Running Docker on Linux server requires Docker Engine (AKA Docker Server) version.
+* Running Docker on Linux server requires Docker Engine (AKA Docker Server) version.
 
 Please refer the below link for the requirements and installation instruction.
 
