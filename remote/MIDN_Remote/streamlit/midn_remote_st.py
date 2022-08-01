@@ -292,3 +292,5 @@ if  stop_button :
         st.session_state['pid'].kill()
         st.session_state['pid'] = None
 
+
+st.write('Software Version : V_20220801')
