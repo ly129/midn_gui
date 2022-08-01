@@ -60,7 +60,7 @@
     ```   
     On a Linux machine, you may need to add "sudo" in front of the command. 
     
-    All Docker command needs to run in a command line ( or Terminal) windows. 
+    All Docker command needs to run in a command line ( or Terminal) window. 
 
     For windows: https://www.dell.com/support/kbdoc/en-in/000130703/the-command-prompt-what-it-is-and-how-to-use-it-on-a-dell-system
  
