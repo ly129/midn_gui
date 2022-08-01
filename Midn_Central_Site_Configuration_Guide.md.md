@@ -15,8 +15,8 @@
       * MIDN network port - The central site has one dedicate port to listen to each remote site. Thus, if there are 10 remote sites involved in computation, the central site needs 10 computation ports open to public.
 
    
-    * There are 3 IP addresses involved the network  
-    
+    * There are 3 IP addresses are involved in the networking   
+        
        *   The public IP address:  The remote site will use the central site public IP address to communicate with central site
 
        *   The central site machine host IP address:  This is the IP address of the machine running the Docker. The user on the central site will use this IP address to access the GUI application 
