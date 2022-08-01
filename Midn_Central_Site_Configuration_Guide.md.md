@@ -25,26 +25,26 @@
 
     * Here is a sample to be used for a 1 central site + 1 remote site experiment. The IP address (not real, for the purpose of explanation only) in this diagram will be used in the below configuration. 
    
-     <picture>
-     <img alt="Sample network diagram" src="https://github.com/Luyaochen1/midn_gui/blob/main/MIDN%20Netwok%20Diagram.png">
- 
-     </picture>   
+      <picture>
+      <img alt="Sample network diagram" src="https://github.com/Luyaochen1/midn_gui/blob/main/MIDN%20Netwok%20Diagram.png">
+
+      </picture>   
      
-   **For Central Machine:** 
-   
-   Local IP address: 192.168.0.23
-   
-   Port listening for web application: 5443 (open to public)
-   
-   Port listening for MIDN Central Controller: 5080 (open to local only)
-   
-   Port listening for MIDN Computing: 6600 - 6700
-   
-   Public IP: 129.103.12.18 
-   
-   Port listening for web application: 5443 (firewall / router will forward 5443 to port 5443 of 192.168.0.23)
-   
-   Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites participated. In this sample, we open 6600 only as there is only one remote site)
+      **For Central site Machine:** 
+
+      Local IP address: 192.168.0.23
+
+      Port listening for web application: 5443 (open to public)
+
+      Port listening for MIDN Central Controller: 5080 (open to local only)
+
+      Port listening for MIDN Computing: 6600 - 6700
+
+      Public IP: 129.103.12.18 
+
+      Port listening for web application: 5443 (firewall / router will forward 5443 to port 5443 of 192.168.0.23)
+
+      Port listening for MIDN Computing: 6600 - 6700   ( depends on how many remote sites participated. In this sample, we open 6600 only as there is only one remote site)
 
 
 3. Pull the latest docker images:
@@ -91,7 +91,7 @@
      <img alt="Screen capture of add a task." src="https://github.com/Luyaochen1/midn_gui/blob/main/screen_capture/Central_task_admin_2.JPG"  width="60%" height="60%">
      </picture>       
       
-   A task ID will be generated. The central site need to send (e.g. by email) this ID (with the public IP address and API port of central server) to all remote sites for their acknowledgement.
+   A task ID will be generated. The central site need to send (e.g. by email) this ID (with the public IP address and API port of central site machine ) to all remote sites for their acknowledgement.
 
  
 6. Before starting the central site computation, the central site needs to wait for all remote sites to acknowledge the task and start their remote job.
