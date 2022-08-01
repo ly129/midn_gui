@@ -9,19 +9,19 @@ Docker Desktop V.S. Docker Engine
 
 * Running Docker on Windows / Mac / GUI version of Linux requires Docker Desktop version.
 
-Please refer to the below links (from Official Docker documentation) for the OS specific requirements and installation instruction.
+  Please refer to the below links (from Official Docker documentation) for the OS specific requirements and installation instruction.
 
-Windows:  https://docs.docker.com/desktop/install/windows-install/
+  Windows:  https://docs.docker.com/desktop/install/windows-install/
 
-Mac OS:  https://docs.docker.com/desktop/install/mac-install/
+  Mac OS:  https://docs.docker.com/desktop/install/mac-install/
 
 Linux:  https://docs.docker.com/desktop/install/linux-install/
 
 * Running Docker on Linux server requires Docker Engine (AKA Docker Server) version.
 
-Please refer the below link for the requirements and installation instruction.
+  Please refer the below link for the requirements and installation instruction.
 
-https://docs.docker.com/engine/install/ 
+  https://docs.docker.com/engine/install/ 
 
-You must follow the instruction of your Linux OS version.  
+  You must follow the instruction of your Linux OS version.  
 
