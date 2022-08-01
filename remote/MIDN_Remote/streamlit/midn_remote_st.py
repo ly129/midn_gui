@@ -16,7 +16,7 @@ st.title( "MIDistNet Remote Site Management Tools")
 st.header('MIDistNet Remote site configure information')
 
 client_name = st.text_input('Remote site name:', config['host_name'])
-server_app_addr =   st.text_input('Central Site Web Applicaiton URL:', config['server_app'])
+server_app_addr =   st.text_input('Central Site API URL:', config['server_app'])
 if config['remote_public_ip'] == '127.0.0.1':
     config['remote_public_ip'] = app.config['public_ip']
 remote_public_ip =   st.text_input('remote public IP address:', config['remote_public_ip'])
