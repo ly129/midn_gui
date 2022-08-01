@@ -115,3 +115,16 @@
       </picture>
 
    
+8. Other useful Docker commands
+ 
+     ```
+    # to stop a central site Docker container 
+    docker stop  midn_central
+    
+    # to start a central site Docker container 
+    docker start  midn_central
+    
+    # to remove a central site Docker container ( in case you need to recreate it. It is always recommended to run this before you rerun step 5)
+    docker rm midn_central -f 
+        
+    ```
