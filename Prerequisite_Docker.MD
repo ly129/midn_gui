@@ -15,7 +15,7 @@ Docker Desktop V.S. Docker Engine
 
   Mac OS:  https://docs.docker.com/desktop/install/mac-install/
 
-Linux:  https://docs.docker.com/desktop/install/linux-install/
+  Linux:  https://docs.docker.com/desktop/install/linux-install/
 
 * Running Docker on Linux server requires Docker Engine (AKA Docker Server) version.
 
