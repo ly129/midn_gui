@@ -42,7 +42,9 @@
 
       Port listening for API: 5443 (firewall / router will forward 5443 to port 5443 of 192.168.0.23)
       
-      Central site API URL: https://129.103.12.18:5443   (the remote site(s) requires this URL to acknowledge a task)
+      Central site API URL: https://129.103.12.18:5443   
+      
+      (the remote site(s) requires this URL to acknowledge a task)
 
       Port listening for MIDN Computing: 6600 - 6700   (depends on how many remote sites participated. In this sample, we open 6600 only as there is only one remote site)
 
