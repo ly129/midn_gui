@@ -24,7 +24,7 @@
 
       </picture>   
      
-    **For Remote Machine:** 
+    **For Remote Site Machine:** 
    
       Local IP address: 192.168.1.15
 
@@ -34,7 +34,7 @@
 
       Public IP: 202.18.15.63
 
-      Port listening for MIDN Computing: 6000   ( Remote site with different public IP address can use the same port)     
+      Port listening for MIDN Computing: 6000   
 
 4. Pull the latest docker images:
 
