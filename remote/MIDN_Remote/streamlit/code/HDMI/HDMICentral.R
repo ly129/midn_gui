@@ -113,8 +113,8 @@ HDMICentralLS <- function(X, y, hosts, ports, cent_ports, lam = 1e-3) {
   )
 
   HD <- list()
-  HD$beta <- fit$beta * n
-  HD$vcov <- fit$vcov * n^2
+  HD$beta <- fit$coefficients * n
+  HD$vcov <- fit$Vb * n^2
   HD$n <- n
 
   K <- length(hosts)
@@ -174,8 +174,8 @@ HDMICentralLogit <- function(X, y, hosts, ports, cent_ports, lam = 1e-3, maxiter
   )
 
   HD <- list()
-  HD$beta <- fit$beta * n
-  HD$vcov <- fit$vcov * n^2
+  HD$beta <- fit$coefficients * n
+  HD$vcov <- fit$Vb * n^2
   HD$n <- n
 
   K <- length(hosts)

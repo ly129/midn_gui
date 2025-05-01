@@ -64,8 +64,8 @@ HDMIRemoteLS = function(X,y,wcon,lam=1e-3)
     data = dd, fp = TRUE
   )
 
-  beta <- fit$beta
-  vcov <- fit$vcov
+  beta <- fit$coefficients
+  vcov <- fit$Vb
   SSE <- NULL
   
   writeVec(beta,wcon)
@@ -104,8 +104,8 @@ HDMIRemoteLogit = function(X,y,wcon,lam=1e-3,maxiter=100)
     fp = TRUE
   )
   
-  writeVec(fit$beta,wcon)
-  writeMat(fit$vcov,wcon)
+  writeVec(fit$coefficients,wcon)
+  writeMat(fit$Vb,wcon)
   writeVec(n,wcon)
 }
 
